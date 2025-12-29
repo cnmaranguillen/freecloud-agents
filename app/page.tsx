@@ -6,7 +6,7 @@ import { HomeServices } from "@/components/home/home-services";
 
 export default function Page() {
 return (
-  <div className="space-y-24 mb-20 container mx-auto">
+  <div className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24 mb-12 sm:mb-16 md:mb-20 container mx-auto px-4 sm:px-6 lg:px-8">
     <HomeHero/>
     <HomeIndustries/>
     <HomeServices/>

@@ -6,10 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactPage() {
   return (
-    <div className="container mx-auto py-16 space-y-8">
+    <div className="container mx-auto py-8 sm:py-12 md:py-16 space-y-6 sm:space-y-8 px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-xl mx-auto space-y-2">
-        <h2 className="text-4xl">Contáctanos</h2>
-        <p className="text-base">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl">Contáctanos</h2>
+        <p className="text-sm sm:text-base">
           Se parte de los emprendedores que dieron el gran salto.
         </p>
       </div>
