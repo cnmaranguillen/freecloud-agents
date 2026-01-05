@@ -4,38 +4,49 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight, ChevronRight } from "@hugeicons/core-free-icons";
 
 const services = {
-  "web-development": {
-    title: "Desarrollo web",
-    description: "Building responsive and modern web applications.",
+  "web-sites": {
+    title: "Sitios web",
+    description: "Sitios web modernos y visibles para incrementar la visibilidad de tu negocio.",
     features: [
-      "Responsive Design",
-      "Performance Optimization",
-      "SEO Friendly",
+      "Diseño para dispositivos móviles",
+      "Optimización para SEO",
+      "Integración con redes sociales",
     ],
     icon: "🌐",
-    image: '/blur/blur-1.avif',
+    image: '/website.avif',
   },
   "mobile-apps": {
-    title: "Mobile Apps",
-    description: "Creating user-friendly mobile applications for iOS and Android.",
+    title: "Aplicaciones móviles",
+    description: "Aplicaciones móviles de alto rendimiento para iOS y Android.",
     features: [
-      "Cross-Platform",
-      "User-Centric Design",
-      "Push Notifications",
+      "Diseño moderno y fluido",
+      "Integración con servicios de terceros",
+      "Maximo rendimiento y seguridad",
     ],
     icon: "📱",
-    image: '/blur/blur-2.avif',
+    image: '/mobile.avif',
   },
-  "ui-ux-design": {
-    title: "UI/UX Design",
-    description: "Designing intuitive user interfaces and experiences.",
+  "automation": {
+    title: "Automatizaciónes",
+    description: "Mejora de eficiencia y productividad en procesos manuales.",
     features: [
-      "Wireframing",
-      "Prototyping",
-      "User Research",
+      "Consumo optimizado de recursos",
+      "Seguridad y privacidad",
+      "Mantenimiento y actualizaciones",
     ],
-    image: '/blur/blur-3.avif',
-    icon: "🎨",
+    image: '/automation.avif',
+    icon: "🤖",
+  },
+  "web-apps": {
+    title: "Aplicaciones web",
+    description: "Administración y gestión de tu negocio desde cualquier parte del mundo.",
+    features: [
+      "Diseño moderno y personalizado",
+      "Integración con servicios de terceros",
+      "Mantenimiento y actualizaciones",
+    ],
+    icon: "💻",
+    image: '/web-app.avif',
   },
 };
 
@@ -47,13 +58,13 @@ export function HomeServices() {
           <div className="flex flex-col gap-4 sm:gap-6">
             <header className="space-y-2">
               <h3 className="text-2xl sm:text-3xl">
-                {services["web-development"].title}
+                {services["web-sites"].title}
               </h3>
-              <p className="text-sm sm:text-base">{services["web-development"].description}</p>
+              <p className="text-sm sm:text-base">{services["web-sites"].description}</p>
             </header>
             <ul className="list-disc ml-6 sm:ml-8 space-y-2 sm:space-y-4">
               {
-                services["web-development"].features.map((feature) => (
+                services["web-sites"].features.map((feature) => (
                   <li key={feature} className="text-sm sm:text-base">{feature}</li>
                 ))
               }
@@ -71,7 +82,7 @@ export function HomeServices() {
           </div>
         </div>
         <div className="relative overflow-hidden rounded-md aspect-square order-1 lg:order-2">
-          <Image src={services["web-development"].image} alt="" objectFit="cover" fill={true}/>
+          <Image src={services["web-sites"].image} alt="" objectFit="cover" fill={true}/>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
@@ -82,13 +93,13 @@ export function HomeServices() {
           <div className="flex flex-col gap-4 sm:gap-8">
             <header className="space-y-2">
               <h3 className="text-2xl sm:text-3xl">
-                {services["web-development"].title}
+                {services["mobile-apps"].title}
               </h3>
-              <p className="text-sm sm:text-base">{services["web-development"].description}</p>
+              <p className="text-sm sm:text-base">{services["mobile-apps"].description}</p>
             </header>
             <ul className="list-disc ml-6 sm:ml-8 space-y-2 sm:space-y-4">
               {
-                services["web-development"].features.map((feature) => (
+                services["mobile-apps"].features.map((feature) => (
                   <li key={feature} className="text-sm sm:text-base">{feature}</li>
                 ))
               }
@@ -111,13 +122,13 @@ export function HomeServices() {
           <div className="flex flex-col gap-4 sm:gap-8">
             <header className="space-y-2">
               <h3 className="text-2xl sm:text-3xl">
-                {services["web-development"].title}
+                {services["automation"].title}
               </h3>
-              <p className="text-sm sm:text-base">{services["web-development"].description}</p>
+              <p className="text-sm sm:text-base">{services["automation"].description}</p>
             </header>
             <ul className="list-disc ml-6 sm:ml-8 space-y-2 sm:space-y-4">
               {
-                services["web-development"].features.map((feature) => (
+                services["automation"].features.map((feature) => (
                   <li key={feature} className="text-sm sm:text-base">{feature}</li>
                 ))
               }
@@ -135,7 +146,39 @@ export function HomeServices() {
           </div>
         </div>
         <div className="relative overflow-hidden rounded-md aspect-square order-1 lg:order-2">
-          <Image src={services["ui-ux-design"].image} alt="" objectFit="cover" fill={true}/>
+          <Image src={services["automation"].image} alt="" objectFit="cover" fill={true}/>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        <div className="relative overflow-hidden rounded-md aspect-square">
+          <Image src={services["web-apps"].image} alt="" objectFit="cover" fill={true}/>
+        </div>
+        <div className="flex items-center justify-center">
+          <div className="flex flex-col gap-4 sm:gap-8">
+            <header className="space-y-2">
+              <h3 className="text-2xl sm:text-3xl">
+                {services["web-apps"].title}
+              </h3>
+              <p className="text-sm sm:text-base">{services["web-apps"].description}</p>
+            </header>
+            <ul className="list-disc ml-6 sm:ml-8 space-y-2 sm:space-y-4">
+              {
+                services["web-apps"].features.map((feature) => (
+                  <li key={feature} className="text-sm sm:text-base">{feature}</li>
+                ))
+              }
+            </ul>
+            <footer className="flex flex-col gap-2">
+              <Button variant="outline" className="w-full sm:w-min">
+                Solicitar servicio ahora 
+                <HugeiconsIcon icon={ArrowUpRight} strokeWidth={2}/>
+              </Button>
+              <Button variant="secondary" className="w-full sm:w-min">
+                Obtener información 
+                <HugeiconsIcon icon={ChevronRight} strokeWidth={2}/>
+              </Button>
+            </footer>
+          </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Button } from "./ui/button";
-import { GoogleDriveIcon, GoogleIcon, HelpCircleIcon, Menu01Icon, Moon01Icon, Moon02Icon, Search01Icon, SidebarLeft01Icon, SidebarLeftIcon} from "@hugeicons/core-free-icons";
+import { DarkModeIcon, GoogleDriveIcon, GoogleIcon, HelpCircleIcon, Menu01Icon, Moon01Icon, Moon02Icon, Search01Icon, SidebarLeft01Icon, SidebarLeftIcon, Sun02Icon, User02Icon} from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "./ui/navigation-menu";
 import React, { useState } from "react";
@@ -59,51 +59,42 @@ export function AppHeader() {
 
   return (
     <header className="w-full sticky top-0 left-0 h-16 bg-background z-50 px-4 sm:px-6">
-      <div className="size-full flex justify-between items-center">
-        <div className="flex items-center gap-1">
+      <div className="size-full grid grid-cols-3 items-center">
+        <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <IsoIcon className="size-10 sm:size-[22.5px] text-primary" />
             <span className={`font-semibold font-mono text-lg sm:text-xl ${isScrolled && "hidden"}`}>
               Agentes
             </span>
           </Link>
-          <Button size="icon" variant="ghost" className="text-muted-foreground">
-            <HugeiconsIcon icon={SidebarLeftIcon} strokeWidth={2} />
+          <Button size="icon" variant="ghost" onClick={() => setTheme(theme == "dark" ? "light" : "dark")} className="text-muted-foreground">
+            <HugeiconsIcon icon={Sun02Icon} strokeWidth={2} className="block dark:hidden" />
+            <HugeiconsIcon icon={Moon02Icon} strokeWidth={2} className="hidden dark:block" />
           </Button>
         </div>
-        <div className="flex items-center justify-end gap-1">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button size="icon" variant="ghost" className="text-muted-foreground">
-                <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-64" align="center">
-              <DropdownMenuLabel>
-                <InputGroup>
-                  <InputGroupAddon>
-                    <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
-                  </InputGroupAddon>
-                  <InputGroupInput placeholder="Busqueda..."/>
-                </InputGroup>
-              </DropdownMenuLabel>
-              {navigationItems.map((item) => (
-                <DropdownMenuItem key={item.name}>
-                  <Link href={item.href}>
-                    {item.name}
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-              <DropdownMenuGroup className="grid grid-cols-2">
-                <DropdownMenuItem className="mr-auto" onClick={() => setTheme(theme == "dark" ? "light" : "dark")}>
-                  <HugeiconsIcon icon={Moon02Icon} strokeWidth={2} />
-                </DropdownMenuItem>
-                <DropdownMenuItem className="ml-auto">
-                  <HugeiconsIcon icon={HelpCircleIcon} strokeWidth={2} />
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        <div>
+          {
+            isScrolled && (
+              <NavigationMenu className="mx-auto">
+                <NavigationMenuList>
+                  {navigationItems.map((item) => (
+                    <NavigationMenuItem key={item.name}>
+                      <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                        <Link href={item.href}>
+                          {item.name}
+                        </Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+            )
+          }
+        </div>
+        <div className="flex items-center justify-end gap-2">
+          <Button variant="outline">
+            Soporte
+          </Button>
           <Link href="/contact">
             <Button className="hidden sm:inline-flex">Contactar ahora</Button>
           </Link>
