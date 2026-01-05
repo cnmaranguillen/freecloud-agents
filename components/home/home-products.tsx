@@ -24,7 +24,7 @@ export function HomeProducts() {
   return (
     <div className="flex flex-col gap-8 sm:gap-12 md:gap-16">
       <h2 className="text-xl sm:text-2xl text-center px-4">Productos de ultima generación desarrolados por nuestro equipo</h2>
-      <div className={cn(products.length < 3 ? "mx-auto flex items-center justify-center gap-6" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6")}>
+      <div className={cn(products.length < 3 ? "mx-auto flex items-center justify-center gap-6 max-md:flex-col" : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6")}>
         {products.map((item) => (
           <div key={item.title} className="max-w-xs w-full mx-auto flex flex-col gap-4 items-center">
             <div className="w-full h-64 relative rounded-md overflow-hidden">

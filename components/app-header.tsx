@@ -14,6 +14,7 @@ import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { useTheme } from "next-themes";
 import { Separator } from "./ui/separator";
+import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 const navigationItems = [
   { name: "Principal", href: "/" },
@@ -62,7 +63,7 @@ export function AppHeader() {
       <div className="size-full grid grid-cols-3 items-center">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
-            <IsoIcon className="size-10 sm:size-[22.5px] text-primary" />
+            <IsoIcon className="size-10 sm:size-[22.5px] text-primary max-sm:size-6" />
             <span className={`font-semibold font-mono text-lg sm:text-xl ${isScrolled && "hidden"}`}>
               Agentes
             </span>
@@ -75,7 +76,7 @@ export function AppHeader() {
         <div>
           {
             isScrolled && (
-              <NavigationMenu className="mx-auto">
+              <NavigationMenu className="mx-auto hidden md:block">
                 <NavigationMenuList>
                   {navigationItems.map((item) => (
                     <NavigationMenuItem key={item.name}>
@@ -92,12 +93,42 @@ export function AppHeader() {
           }
         </div>
         <div className="flex items-center justify-end gap-2">
-          <Button variant="outline">
+          <Button variant="outline" className="hidden md:inline-flex">
             Soporte
           </Button>
-          <Link href="/contact">
-            <Button className="hidden sm:inline-flex">Contactar ahora</Button>
+          <Link href="/contact" className="hidden md:inline-flex">
+            <Button>Contactar ahora</Button>
           </Link>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost">
+                <HugeiconsIcon icon={Menu01Icon} strokeWidth={2} />
+                Menu
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-4 px-6">
+                {navigationItems.map((item) => (
+                  <span key={item.name} className="text-lg">
+                    <Link href={item.href}>
+                      {item.name}
+                    </Link>
+                  </span>
+                ))}
+              </div>
+              <SheetFooter>
+                <Link href="/contact">
+                  <Button className="w-full">Contactar ahora</Button>
+                </Link>
+                <Button variant="outline" className="w-full">
+                  Soporte
+                </Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
